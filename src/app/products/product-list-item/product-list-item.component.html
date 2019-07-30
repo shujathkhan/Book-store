@@ -1,0 +1,31 @@
+<!-- list layout -->
+
+<td class="card--list__name">
+  <h2>
+    <strong>{{ product.title }}</strong>
+  </h2>
+  <p>By {{ product.authors | truncate:200 }}</p>
+</td>
+<td class="card--list__price">
+    <span class="rating" >{{product.average_rating}}</span>
+
+</td>
+<td class="card--list__price">
+  <div>
+    <span class="totalrating">{{product.ratings_count}}</span>
+  </div>
+</td>
+<td class="card--list__price">
+  <div>
+    {{ product.price | currency }}
+  </div>
+</td>
+<td class="card--list__ctas">
+  <div class="buttons has-addons">
+    <a class="button" (click)="onAddToCart(product)">
+      <span class="icon is-small">
+        <i class="fas fa-cart-plus"></i>
+      </span>
+    </a>
+  </div>
+</td>

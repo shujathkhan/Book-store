@@ -1,0 +1,37 @@
+<nav class="navbar is-fixed-top">
+  <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item logo" routerLink="/">
+         The Book Store
+        </a>
+        <div class="navbar-burger burger" [ngClass]="{'is-active': menuToggle}" data-target="navbarExampleTransparentExample" (click)="menuToggle = !menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu" [ngClass]="{'is-active': menuToggle}">
+        <div class="navbar-start">
+          <a
+            class="navbar-item"
+            routerLink="/"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+            Home
+          </a>
+          <a class="navbar-item" routerLink="/products" routerLinkActive="is-active">
+            <span class="icon">
+              <i class="fas fa-book"></i>
+            </span>
+           Books
+          </a>
+        </div>
+
+        <app-cartmini class="navbar-end mini-cart-wrap"></app-cartmini>
+      </div>
+  </div>
+</nav>

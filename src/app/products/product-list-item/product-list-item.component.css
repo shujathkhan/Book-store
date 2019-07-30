@@ -1,0 +1,40 @@
+/* list layout */
+
+.card--list__img {
+  width: 150px;
+}
+
+.card--list__ctas {
+  width: 130px;
+}
+
+.card--list__ctas div {
+  display: flex;
+  justify-content: center;
+}
+
+.card--list__price,
+.card--list__ctas {
+  padding-top: 35px;
+}
+.star-rating {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.star-rating li {
+  list-style: none;
+  float: left;
+  color: #efefef;
+  cursor: pointer;
+  font-size: 40px;
+  margin-right: 4px;
+}
+
+.star-rating li.hover {
+  color: #ccc;
+}
+
+.star-rating li.checked {
+  color: #fcda00;
+}

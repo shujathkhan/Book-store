@@ -1,0 +1,43 @@
+<div class="columns products-wrapper">
+  <aside class="aside column is-one-quarter">
+    <app-filters></app-filters>
+  </aside>
+  <div class="column is-three-quarter">
+    <div *ngIf="isLoading" class="loaderOverlay">
+      <div class="loader">Loading...</div>
+    </div>
+
+
+
+      <ng-template [ngIf]="((products | filter:filterBy) | search: searchText).length > 0">
+        <!-- grid layout -->
+        <div class="columns is-multiline" *ngIf="layoutMode">
+          <app-product-card class="column is-half-tablet is-one-third-fullhd" *ngFor="let product of (products | filter:filterBy) | search: searchText"
+            [product]="product"></app-product-card>
+        </div>
+        <!-- columns -->
+
+        <!-- list layout -->
+        <table *ngIf="!layoutMode" class="table is-fullwidth is-striped">
+          <thead>
+            <tr>
+              
+              <th colspan="1">Name / Authors</th>
+              <th colspan="1">Avg rating(5)</th>
+              <th colspan="1">Rating count</th>
+              <th colspan="1">Price</th>
+              <th colspan="1">Add to cart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <app-product-list-item class="tr" *ngFor="let product of (products | filter:filterBy) | search: searchText" [product]="product"></app-product-list-item>
+          </tbody>
+        </table>
+      </ng-template>
+
+
+      <h2 *ngIf="((products | filter:filterBy) | search: searchText).length <= 0 && !isLoading">No results for your search, try resetting your filters</h2>
+
+
+  </div>
+</div>

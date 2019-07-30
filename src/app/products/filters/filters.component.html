@@ -1,0 +1,66 @@
+<div class="card card--filters">
+  <header class="card-header">
+    <p class="card-header-title">
+      Filters
+    </p>
+
+    <span class="card--filters__layout-option">
+      <a
+        class="card-header-icon"
+        [ngClass]="{'has-text-dark': layoutMode, 'has-text-grey-light': !layoutMode}" (click)="setLayout(true)">
+        <span class="icon">
+          <i class="fas fa-th" aria-hidden="true "></i>
+        </span>
+      </a>
+    </span>
+
+    <span class="card--filters__layout-option">
+      <a
+        class="card-header-icon"
+        [ngClass]="{'has-text-dark': !layoutMode, 'has-text-grey-light': layoutMode}" (click)="setLayout(false)">
+        <span class="icon">
+          <i class="fas fa-list" aria-hidden="true "></i>
+        </span>
+      </a>
+    </span>
+
+    <a
+      class="card-header-icon"
+      [ngClass]="{'has-text-dark': filterToggle, 'has-text-grey-light': !filterToggle}"
+      (click)="filterToggle = !filterToggle"
+    >
+      <span class="icon">
+        <i class="fas fa-filter" aria-hidden="true "></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content" [ngClass]="{'dn': !filterToggle}">
+    <div class="content has-text-centered">
+      <nav class="panel">
+        <div class="panel-block">
+          <p class="control has-icons-left">
+            <input class="input is-small" type="text" placeholder="search" (keyup)="searchFilter()" #searchInput />
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </p>
+        </div>
+        <a class="panel-block" [ngClass]="{'is-active': filterBy==='all'}" (click)="setFilter('all')">
+          All
+        </a>
+        <a class="panel-block" [class.is-active]="filterBy==='eng'" (click)="setFilter('eng')">
+          English
+        </a>
+        <a class="panel-block" [class.is-active]="filterBy==='other'" (click)="setFilter('other')">
+          Other
+        </a>
+        <div class="panel-block">
+          <button class="button is-outlined is-fullwidth" (click)="resetFilters()">
+            reset all filters
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </div>
+</div>
